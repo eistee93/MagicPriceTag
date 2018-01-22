@@ -11,13 +11,13 @@ namespace MKMAPI
    class OAuthHeader
    {
       /// <summary>App Token</summary>
-      protected String appToken = "bfaD9xOU0SXBhtBP";
+      protected String appToken;
       /// <summary>App Secret</summary>
-      protected String appSecret = "pChvrpp6AEOEwxBIIUBOvWcRG3X9xL4Y";
+      protected String appSecret;
       /// <summary>Access Token (Class should also implement an AccessToken property to set the value)</summary>
-      protected String accessToken = "lBY1xptUJ7ZJSK01x4fNwzw8kAe5b10Q";
+      protected String accessToken;
       /// <summary>Access Token Secret (Class should also implement an AccessToken property to set the value)</summary>
-      protected String accessSecret = "hc1wJAOX02pGGJK2uAv1ZOiwS7I9Tpoe";
+      protected String accessSecret;
       /// <summary>OAuth Signature Method</summary>
       protected String signatureMethod = "HMAC-SHA1";
       /// <summary>OAuth Version</summary>
@@ -28,13 +28,17 @@ namespace MKMAPI
       /// <summary>
       /// Constructor
       /// </summary>
-      public OAuthHeader()
+      public OAuthHeader(string appToken, string appSecret, string accessToken, string accessSecret)
       {
-         // String nonce = Guid.NewGuid().ToString("n");
+         /// String nonce = Guid.NewGuid().ToString("n");
          String nonce = "53eb1f44909d6";
-         // String timestamp = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds.ToString();
+         /// String timestamp = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds.ToString();
          String timestamp = "1407917892";
          /// Initialize all class members
+         this.appToken = appToken;
+         this.accessToken = accessToken;
+         this.appSecret = appSecret;
+         this.accessSecret = accessSecret;
          this.headerParams = new Dictionary<String, String>();
          this.headerParams.Add("oauth_consumer_key", this.appToken);
          this.headerParams.Add("oauth_token", this.accessToken);
