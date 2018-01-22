@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using MKMAPI;
-using PriceTagUI.MVVM;
+using WPFUI.MVVM;
+using MKM;
 
-namespace PriceTagUI.ViewModel
+namespace WPFUI
 {
-   class MainViewModel : MVVM.INotifyPropertyChangedBase
-   {
+    class MainViewModel : INotifyPropertyChangedBase
+    {
         private string appToken;
         public string AppToken
         {
@@ -73,7 +73,8 @@ namespace PriceTagUI.ViewModel
 
         public void DoStuff()
         {
-            RequestHelper helper = null;
+            RequestHelper helper = new RequestHelper();
+            helper.makeRequest(appToken, appSecret, accessToken, accessSecret);
         }
     }
 }

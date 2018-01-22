@@ -8,7 +8,7 @@ namespace MKMAPI
    /// <summary>
    /// Class encapsulates tokens and secret to create OAuth signatures and return Authorization headers for web requests.
    /// </summary>
-   class OAuthHeader
+   public class OAuthHeader
    {
       /// <summary>App Token</summary>
       protected String appToken;
@@ -30,10 +30,6 @@ namespace MKMAPI
       /// </summary>
       public OAuthHeader(string appToken, string appSecret, string accessToken, string accessSecret)
       {
-         /// String nonce = Guid.NewGuid().ToString("n");
-         String nonce = "53eb1f44909d6";
-         /// String timestamp = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds.ToString();
-         String timestamp = "1407917892";
          /// Initialize all class members
          this.appToken = appToken;
          this.accessToken = accessToken;
@@ -42,8 +38,8 @@ namespace MKMAPI
          this.headerParams = new Dictionary<String, String>();
          this.headerParams.Add("oauth_consumer_key", this.appToken);
          this.headerParams.Add("oauth_token", this.accessToken);
-         this.headerParams.Add("oauth_nonce", nonce);
-         this.headerParams.Add("oauth_timestamp", timestamp);
+         this.headerParams.Add("oauth_nonce", Guid.NewGuid().ToString("n"));
+         this.headerParams.Add("oauth_timestamp", (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds.ToString());
          this.headerParams.Add("oauth_signature_method", this.signatureMethod);
          this.headerParams.Add("oauth_version", this.version);
       }

@@ -6,18 +6,15 @@ using System.Xml;
 
 namespace MKMAPI
 {
-    class RequestHelper
+    public class RequestHelper
     {
-      public void makeRequest()
+      public void makeRequest(string appToken, string appSecret, string accessToken, string accessSecret)
       {
          String method = "GET";
          String url = "https://www.mkmapi.eu/ws/v2.0/account";
 
          HttpWebRequest request = WebRequest.CreateHttp(url) as HttpWebRequest;
-         OAuthHeader header = new OAuthHeader("bfaD9xOU0SXBhtBP",
-                                              "pChvrpp6AEOEwxBIIUBOvWcRG3X9xL4Y",
-                                              "lBY1xptUJ7ZJSK01x4fNwzw8kAe5b10Q",
-                                              "hc1wJAOX02pGGJK2uAv1ZOiwS7I9Tpoe");
+         OAuthHeader header = new OAuthHeader(appToken, appSecret, accessToken, accessSecret);
          request.Headers.Add(HttpRequestHeader.Authorization, header.getAuthorizationHeader(method, url));
          request.Method = method;
 
