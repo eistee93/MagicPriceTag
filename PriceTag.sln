@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceTag", "PriceTag\PriceTag.csproj", "{B3877978-70F5-42F5-959F-8CA4A4531056}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MKMAPI", "MKMAPI\MKMAPI.csproj", "{4D6210F6-970E-4159-8D82-A36CCB38F002}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B3877978-70F5-42F5-959F-8CA4A4531056}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3877978-70F5-42F5-959F-8CA4A4531056}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3877978-70F5-42F5-959F-8CA4A4531056}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D6210F6-970E-4159-8D82-A36CCB38F002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D6210F6-970E-4159-8D82-A36CCB38F002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D6210F6-970E-4159-8D82-A36CCB38F002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D6210F6-970E-4159-8D82-A36CCB38F002}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
