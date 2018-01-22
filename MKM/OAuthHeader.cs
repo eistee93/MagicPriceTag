@@ -41,7 +41,7 @@ namespace MKM
             this.headerParams.Add("oauth_consumer_key", this.appToken);
             this.headerParams.Add("oauth_token", this.accessToken);
             this.headerParams.Add("oauth_nonce", Guid.NewGuid().ToString("n"));
-            this.headerParams.Add("oauth_timestamp", (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds.ToString());
+            this.headerParams.Add("oauth_timestamp", Math.Floor((DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds).ToString());
             this.headerParams.Add("oauth_signature_method", this.signatureMethod);
             this.headerParams.Add("oauth_version", this.version);
         }
