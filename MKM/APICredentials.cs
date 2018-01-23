@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
-using WPFUI.MVVM;
-using MKM;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace WPFUI
+namespace MKM
 {
-   class MainViewModel : INotifyPropertyChanged
+   public class APICredentials: INotifyPropertyChanged
    {
       #region "INPC"
       public event PropertyChangedEventHandler PropertyChanged;
@@ -35,49 +32,57 @@ namespace WPFUI
       }
       #endregion
 
-      private APICredentials credentials;
-      public APICredentials Credentials
+      private string appToken;
+      public string AppToken
       {
          get
          {
-            return credentials;
+            return appToken;
          }
          set
          {
-            NotifyPropertyChanged(ref credentials, value);
+            NotifyPropertyChanged(ref appToken, value);
          }
       }
 
-      private string result;
-      public string Result
+      private string appSecret;
+      public string AppSecret
       {
          get
          {
-            return result;
+            return appSecret;
          }
          set
          {
-            NotifyPropertyChanged(ref result, value);
+            NotifyPropertyChanged(ref appSecret, value);
          }
       }
 
-      public ICommand DoStuffCommand
+      private string accessToken;
+      public string AccessToken
       {
          get
          {
-            return new DelegateCommand(DoStuff);
+            return accessToken;
+         }
+         set
+         {
+            NotifyPropertyChanged(ref accessToken, value);
          }
       }
 
-      public MainViewModel()
+      private string accessSecret;
+      public string AccessSecret
       {
-         Credentials = new APICredentials();
+         get
+         {
+            return accessSecret;
+         }
+         set
+         {
+            NotifyPropertyChanged(ref accessSecret, value);
+         }
       }
 
-      public void DoStuff()
-      {
-         RequestHelper helper = new RequestHelper();
-         Result = helper.makeRequest(Credentials);
-      }
    }
 }

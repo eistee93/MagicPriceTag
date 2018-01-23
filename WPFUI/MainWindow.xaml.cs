@@ -15,14 +15,16 @@ using System.Windows.Shapes;
 
 namespace WPFUI
 {
-    /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
-    {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
-    }
+   /// <summary>
+   /// Interaktionslogik für MainWindow.xaml
+   /// </summary>
+   public partial class MainWindow : Window
+   {
+      public MainWindow()
+      {
+         MainViewModel vm = new MainViewModel();
+         InitializeComponent();
+         DataContext = vm;
+      }
+   }
 }
