@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using WPFUI.MVVM;
 using MKM;
+using PriceTagData;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Xml;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace WPFUI
 {
@@ -77,7 +81,9 @@ namespace WPFUI
       public void DoStuff()
       {
          RequestHelper helper = new RequestHelper();
-         Result = helper.makeRequest(Credentials);
+         XmlDocument xdoc = helper.OrderRequest(Credentials, (int)OrderActor.Buyer, (int)OrderState.Received);
+         response rep = Serialization.SerializeOrder(xdoc);
+         Result = xdoc.OuterXml;
       }
    }
 }
