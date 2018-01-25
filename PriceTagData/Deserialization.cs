@@ -5,24 +5,21 @@ using System.Xml.Serialization;
 
 namespace PriceTagData
 {
-   public static class Serialization
+   public static class Deserialization
    {
-      public static response SerializeOrder(XmlDocument xdoc)
+      public static Response.OrderResponse DeserializeOrderResponse(XmlDocument xdoc)
       {
-         response retVal;
          using (XmlReader reader = XmlReader.Create(new StringReader(xdoc.OuterXml)))
          {
             reader.MoveToContent();
             switch (reader.Name)
             {
                case "response":
-                  retVal = (response)new XmlSerializer(typeof(response)).Deserialize(reader);
-                  break;
+                  return (Response.OrderResponse)new XmlSerializer(typeof(Response.OrderResponse)).Deserialize(reader);
                default:
                   throw new NotSupportedException("Unexpected: " + reader.Name);
             }
          }
-         return retVal;
       }
    }
 }

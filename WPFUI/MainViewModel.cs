@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using WPFUI.MVVM;
 using MKM;
 using PriceTagData;
+using PriceTagData.Response;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Xml;
-using System.IO;
-using System.Xml.Serialization;
 
 namespace WPFUI
 {
@@ -82,7 +76,7 @@ namespace WPFUI
       {
          RequestHelper helper = new RequestHelper();
          XmlDocument xdoc = helper.OrderRequest(Credentials, (int)OrderActor.Buyer, (int)OrderState.Received);
-         response rep = Serialization.SerializeOrder(xdoc);
+         OrderResponse rep = Deserialization.DeserializeOrderResponse(xdoc);
          Result = xdoc.OuterXml;
       }
    }
