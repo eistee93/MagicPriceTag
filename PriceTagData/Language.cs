@@ -10,7 +10,7 @@ namespace PriceTagData
    public class Language
    {
       [System.Xml.Serialization.XmlElement("idLanguage")]
-      public int Id { get; set; }
+      public LanguageId Id { get; set; }
 
       [System.Xml.Serialization.XmlElement("languageName")]
       public string Name { get; set; }

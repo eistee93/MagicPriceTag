@@ -34,7 +34,7 @@ namespace PriceTagData
       public Product Product { get; set; }
 
       [System.Xml.Serialization.XmlElement("condition")]
-      public string Condition { get; set; }
+      public Condition Condition { get; set; }
 
       [System.Xml.Serialization.XmlElement("isFoil")]
       public bool IsFoil { get; set; }

@@ -44,7 +44,9 @@
     <Compile Include="Article.cs" />
     <Compile Include="Deserialization.cs" />
     <Compile Include="Enum\Complaint.cs" />
+    <Compile Include="Enum\Condition.cs" />
     <Compile Include="Enum\Grade.cs" />
+    <Compile Include="Enum\LanguageId.cs" />
     <Compile Include="Enum\OrderActor.cs" />
     <Compile Include="Enum\OrderState.cs" />
     <Compile Include="Enum\Reputation.cs" />
